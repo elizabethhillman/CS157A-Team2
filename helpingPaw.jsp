@@ -8,10 +8,10 @@
 <body>
     <h1>JDBC Connection example</h1>
     <%
-    String db = "helpingpaw",        //For hw1, this is your last name
+    String db = "helpingpaw",              //Database for the helping paw application
         username = "root",                //By default, this should be root
-        password = "Bullsh1t!",        //This PW was defined when you set up MySQL
-        table = "adoptableanimals";        //For hw1, this is hw1
+        password = "team2",              //common password for the team
+        table = "adoptableanimals";      //first table: adoptable animals
         
     try {
         java.sql.Connection con;
