@@ -1,0 +1,16 @@
+CREATE TABLE helpingpaw.users(name VARCHAR(45) PRIMARY KEY, permission VARCHAR(45), password VARCHAR(45));
+INSERT INTO helpingpaw.users VALUES("mj300","user","michaeljackson");
+INSERT INTO helpingpaw.users VALUES("ronniem","user","4hsdf8e");
+INSERT INTO helpingpaw.users VALUES("puppyluvr","user","iheartdogs!");
+INSERT INTO helpingpaw.users VALUES("puppyluver01","user","ilikecatstoo");
+INSERT INTO helpingpaw.users VALUES("christom","admin","09ksj24d37!");
+INSERT INTO helpingpaw.users VALUES("fossilfighter","user","fossilmaster");
+INSERT INTO helpingpaw.users VALUES("c3p0","user","r2d2sux");
+INSERT INTO helpingpaw.users VALUES("s.schauer","admin","Bbroski0405");
+INSERT INTO helpingpaw.users VALUES("djade16","user","pbaguette123");
+INSERT INTO helpingpaw.users VALUES("e.esguerra","admin","123456");
+INSERT INTO helpingpaw.users VALUES("winchester.m","user","mysteryhouse");
+INSERT INTO helpingpaw.users VALUES("sarahcoleman","user","password123");
+INSERT INTO helpingpaw.users VALUES("birdsandthings","agency","BirdsForever");
+INSERT INTO helpingpaw.users VALUES("djramos","user","discjockey456");
+INSERT INTO helpingpaw.users VALUES("argonaut2000","user","piratelifeforme");

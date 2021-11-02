@@ -1,0 +1,16 @@
+CREATE TABLE helpingpaw.contains (email VARCHAR(45) PRIMARY KEY, username VARCHAR(45) PRIMARY KEY);
+INSERT INTO helpingpaw.contains VALUES ("mj300@gmail.com","mj300");
+INSERT INTO helpingpaw.contains VALUES ("ronniem@yahoo.com","ronniem");
+INSERT INTO helpingpaw.contains VALUES ("puppyluvr@hotmail.com","puppyluvr");
+INSERT INTO helpingpaw.contains VALUES ("abbygp@gmail.com","puppyluver01");
+INSERT INTO helpingpaw.contains VALUES ("christom@hotmail.com","christom");
+INSERT INTO helpingpaw.contains VALUES ("fossilfighter@gmail.com","fossilfighter");
+INSERT INTO helpingpaw.contains VALUES ("clyde.pill@gmail.com","cp30");
+INSERT INTO helpingpaw.contains VALUES ("sarah.schauer@gmail.com","s.schauer");
+INSERT INTO helpingpaw.contains VALUES ("deanna.jade@gmail.com","djade16");
+INSERT INTO helpingpaw.contains VALUES ("e.esguerra@gmail.com","e.esguerra");
+INSERT INTO helpingpaw.contains VALUES ("m.winchester@gmail.com","winchester.m");
+INSERT INTO helpingpaw.contains VALUES ("s.coleman@gmail.com","sarahcoleman");
+INSERT INTO helpingpaw.contains VALUES ("birdsandthings@gmail.com","birdsandthings");
+INSERT INTO helpingpaw.contains VALUES ("djramos@gmail.com","djramos");
+INSERT INTO helpingpaw.contains VALUES ("jason.arg@gmail.com","argonaut2000");
