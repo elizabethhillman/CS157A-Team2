@@ -1,1 +1,3 @@
-# CS157A-team2
+# CS157A-Team2
+
+The Helping Paw application is a database application for pet adoption centers, involving adopting and putting animals up for adoption. Users who wish to adopt an animal will be able to search for the desired type of animal, breed, and/or age they want to adopt, alongside other details and traits taken from animals’ profiles. Users who are putting an animal up for adoption will be able to create a profile for their animal. The motivation of this project is to have a simple and easy way to help interested users find the perfect animal(s) for them to adopt into their homes. The pet adoption process, both adopting and putting animals up for adoption, can be difficult to navigate, especially in a virtual format. The benefit to users that this project provides is the ability to find any specific animal they wish to adopt in one simple, easy to use application.
