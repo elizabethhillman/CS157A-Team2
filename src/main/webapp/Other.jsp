@@ -19,6 +19,39 @@
         <td>Type</td>
         <br/>
    </tr>
+   <form action = "Other.jsp" method = "GET">
+         Animal Name: <input type = "text" name = "animal_name">
+         <br />
+         Age: <input type = "text" name = "age" />
+         <br/>
+         Breed: <input type = "text" name = "breed">
+         <br />
+         Sex: <input type = "text" name = "sex">
+         <br />
+         Type: <input type = "text" name = "type">
+         <br />
+         <input type = "submit" value = "Submit" />
+      </form>
+      
+      <h3>  <%= request.getParameter("animal_name")%> the  <%= request.getParameter("age")%> year old  <%= request.getParameter("breed")%> has now been put up for adoption. </h3>
+     <ul>
+         <li><p><b>Animal Name</b>
+            <%= request.getParameter("animal_name")%>
+         </p></li>
+         <li><p><b>Age:</b>
+            <%= request.getParameter("age")%>
+         </p></li>
+         <li><p><b>Breed:</b>
+            <%= request.getParameter("breed")%>
+         </p></li>
+         <li><p><b>Sex:</b>
+            <%= request.getParameter("sex")%>
+         </p></li>
+         <li><p><b>Type:</b>
+            <%= request.getParameter("type")%>
+         </p></li>
+      </ul>
+   
     <%
     String db = "helpingpaw",        
         username = "root",                
