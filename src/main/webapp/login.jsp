@@ -24,7 +24,7 @@
          <h2></h2>
          <a href="helpingPaw.jsp">Login</a>
         
-         
+         <h2></h2>
          <a href="register.jsp">Create an Account</a>
       </form>
       
