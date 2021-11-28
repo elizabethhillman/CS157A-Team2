@@ -7,7 +7,7 @@
 <title> Helping Paw - Animals</title>
 </head>
 <body>
-    <h1> Animals</h1>         
+    <h1>Cats</h1>         
     <table border="1">
       <tr>
         <td>Animal ID</td>
@@ -48,5 +48,15 @@
         out.println("SQLException caught: " + e.getMessage());
     }
     %>
+ </table>
+ 
+ </br>
+To find more information about the requested animal please enter the animal id</br>
+
+<form method = "get" action = "QueryAnimal.jsp">
+	Animal ID:<input type = "text" name = "AnimalID"><br>
+	<input type="submit"  value = "Submit ID" />
+</form>
+    
 </body>
 </html>

@@ -7,7 +7,7 @@
 <title> Helping Paw - Animals</title>
 </head>
 <body>
-    <h1> Animals</h1>         
+    <h1>Other Animals</h1>         
     <table border="1">
       <tr>
         <td>Animal ID</td>
@@ -19,38 +19,7 @@
         <td>Type</td>
         <br/>
    </tr>
-   <form action = "Other.jsp" method = "GET">
-         Animal Name: <input type = "text" name = "animal_name">
-         <br />
-         Age: <input type = "text" name = "age" />
-         <br/>
-         Breed: <input type = "text" name = "breed">
-         <br />
-         Sex: <input type = "text" name = "sex">
-         <br />
-         Type: <input type = "text" name = "type">
-         <br />
-         <input type = "submit" value = "Submit" />
-      </form>
-      
-      <h3>  <%= request.getParameter("animal_name")%> the  <%= request.getParameter("age")%> year old  <%= request.getParameter("breed")%> has now been put up for adoption. </h3>
-     <ul>
-         <li><p><b>Animal Name</b>
-            <%= request.getParameter("animal_name")%>
-         </p></li>
-         <li><p><b>Age:</b>
-            <%= request.getParameter("age")%>
-         </p></li>
-         <li><p><b>Breed:</b>
-            <%= request.getParameter("breed")%>
-         </p></li>
-         <li><p><b>Sex:</b>
-            <%= request.getParameter("sex")%>
-         </p></li>
-         <li><p><b>Type:</b>
-            <%= request.getParameter("type")%>
-         </p></li>
-      </ul>
+
    
     <%
     String db = "helpingpaw",        
@@ -73,12 +42,23 @@
         Statement stmt2 = con.createStatement();
         ResultSet rs2 = stmt2.executeQuery("select * from " + db + ".animal NATURAL JOIN " + db + "." + table + " GROUP BY other.animalID");
         while (rs2.next())
-            out.println("<br>" + rs2.getInt(1) + " " + rs2.getString(2) + " " + rs2.getInt(3) + " " +  rs2.getString(4) + " " +  rs2.getString(5) + " " +   rs2.getInt(6) + " " +  rs2.getInt(7));
+            out.println("<br>" + rs2.getString(1) + " " + rs2.getString(2) + " " + rs2.getInt(3) + " " +  rs2.getString(4) + " " +  rs2.getString(5) + " " +   rs2.getString(6) + " " +  rs2.getString(7));
         con.close();
 
     } catch (SQLException e) {
         out.println("SQLException caught: " + e.getMessage());
     }
     %>
+ </table>
+ 
+ </br>
+To find more information about the requested animal please enter the animal id</br>
+
+<form method = "get" action = "QueryAnimal.jsp">
+	Animal ID:<input type = "text" name = "AnimalID"><br>
+	<input type="submit"  value = "Submit ID" />
+</form>
+    
+    
 </body>
 </html>
