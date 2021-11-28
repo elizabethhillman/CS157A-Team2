@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Helping Paw - Animals</title>
+<title>Helping Paw - Birds</title>
 </head>
 <body>
 	<h1>Birds</h1>
@@ -22,6 +22,8 @@
 		<form action = "AddBird.jsp" method = "GET">
          Animal Name: <input type = "text" name = "animal_name">
          <br />
+	 ID: <input type = "text" name = "id">
+         <br />
          Age: <input type = "text" name = "age" />
          <br/>
          Breed: <input type = "text" name = "breed">
@@ -32,7 +34,7 @@
          <br />
          <input type = "submit" value = "Submit" />
       </form>
-      
+      <!--
       <h3>  <%= request.getParameter("animal_name")%> the  <%= request.getParameter("age")%> year old  <%= request.getParameter("breed")%> has now been put up for adoption. </h3>
      <ul>
          <li><p><b>Animal Name</b>
@@ -50,6 +52,7 @@
          <li><p><b>Beak Size:</b>
             <%= request.getParameter("beakSize")%>
          </p></li>
+-->
       </ul>
 
 		<%
@@ -63,14 +66,13 @@
 			java.sql.Connection con;
 			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db, username, password);
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("select * from " + db + "." + table);
-
-			//This code can be changed to be a nice header instead of just hello
-			out.println("Welcome to Helping Paw! Here are the animals in our database.");
-
-			//Statement stmt2 = con.createStatement();
-			//ResultSet rs2 = //stmt2.executeQuery(	"INSERT INTO " + db + "." + table + " VALUES()");
+			Statement stmt2 = con.createStatement();
+			if (request.getParameter("animal_name") != null)
+			{
+			int ri = stmt2.executeUpdate("INSERT INTO " + db + "." + table + " (animalID,animalName,age,breed,sex,available) VALUES(" + request.getParameter("id")+ ",\'" + request.getParameter("animal_name") + "\'," + request.getParameter("age") + ",\'" + request.getParameter("breed") + "\',\'" + request.getParameter("sex") +  "\',1)" );
+			int rb = stmt2.executeUpdate("INSERT INTO " + db + ".bird (animalID, beakSize) VALUES(" + request.getParameter("id") + "," + request.getParameter("beakSize") + ")");
+			out.println( request.getParameter("animal_name") + " the " +  request.getParameter("age") + " year-old "+ request.getParameter("breed") + " has now been put up for adoption.");
+			}
 
 		} catch (SQLException e) {
 			out.println("SQLException caught: " + e.getMessage());
