@@ -52,5 +52,9 @@ To find more information about the requested animal please enter the animal id</
 	<input type="submit"  value = "Submit ID" />
 </form>
 
+<h4>
+<a href="Animals.jsp">See all animals</a>
+</h4>
+
 </body>
 </html>

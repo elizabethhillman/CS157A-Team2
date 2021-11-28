@@ -12,7 +12,15 @@
 </head>
    <body>
    	<h1>Animals</h1>
+   	
 Welcome to Helping Paw! Here are the animals in our database. 
+<h4>
+Go to: 
+<a href="Bird.jsp">Birds</a>
+<a href="Cat.jsp">Cats</a>
+<a href="Dog.jsp">Dogs</a>
+<a href="Other.jsp">Other</a>
+</h4>
    	
       <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
          url = "jdbc:mysql://localhost/helpingpaw"
@@ -45,6 +53,15 @@ Welcome to Helping Paw! Here are the animals in our database.
             </tr>
          </c:forEach>
       </table>
+      </br>
+To find more information about an animal please enter the animal id</br>
+
+<form method = "get" action = "QueryAnimal.jsp">
+	Animal ID:<input type = "text" name = "AnimalID"><br>
+	<input type="submit"  value = "Submit ID" />
+</form>
+
+
  
 </body>
 </html>

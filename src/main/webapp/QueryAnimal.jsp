@@ -52,7 +52,9 @@
 	        out.println("SQLException caught: " + e.getMessage());
 	    }
 	%>
-	
+	<h4>
+<a href="Animals.jsp">See all animals</a>
+</h4>
 
 </body>
 </html>

@@ -22,7 +22,7 @@
 	         <br />
 	         Password: <input type = "text" name = "password" />
 	         <br/>
-	         Confirm Password: <input type = "text" name = "password" />
+	         Confirm Password: <input type = "text" name = "confirmedPassword" />
 	         <br/>
 	         
 	         <h2></h2>
