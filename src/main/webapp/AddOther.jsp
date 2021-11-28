@@ -29,6 +29,9 @@
 				type="submit" value="Submit" />
 		</form>
 
+<h4>
+		<a href="Animals.jsp">Back</a>
+	</h4>
 		<%
 		String db = "helpingpaw", 
 		username = "root", 

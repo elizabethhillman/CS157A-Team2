@@ -37,6 +37,9 @@
          <br />
          <input type = "submit" value = "Submit" />
       </form>
+      <h4>
+		<a href="Animals.jsp">Back</a>
+	</h4>
       
 <!--     <h3>  <%= request.getParameter("animal_name")%> the  <%= request.getParameter("age")%> year old  <%= request.getParameter("breed")%> has now been put up for adoption. </h3>
      <ul>
