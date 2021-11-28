@@ -1,14 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
+<%@ page import = "java.io.*,java.util.*,java.sql.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "sql"   uri = "http://java.sun.com/jsp/jstl/sql" %>
+
 <html>
 <head>
 <meta charset="UTF-8">
-<title> Helping Paw - Animals</title>
+<title> Helping Paw-Birds</title>
 </head>
-<body>
-    <h1>Birds</h1>         
-    <table border="1">
+   <body>
+   	<h1>Birds</h1>
+      <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
+         url = "jdbc:mysql://localhost/helpingpaw"
+         user = "root"  password = "team2"/>
+ 
+      <sql:query dataSource = "${snapshot}" var = "result">
+         SELECT * FROM  helpingpaw.animal, helpingpaw.bird where animal.animalID = bird.animalID;
+      </sql:query>
+ 
+      <table border = "1">
       <tr>
         <td>Animal ID</td>
         <td>Animal Name </td>
@@ -16,38 +28,22 @@
         <td>Breed </td>
         <td>Sex </td>
         <td>Available?</td>
-        <td>Beak Size</td>
+        <td>Break Size</td>
         <br/>
-   </tr>
-    <%
-    String db = "helpingpaw",        
-        username = "root",                
-        password = "team2",        
-        table = "bird";       
-        
-    try {
-        java.sql.Connection con;
-        Class.forName("com.mysql.jdbc.Driver");
-        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db, username, password);
-        
-        //This code can be changed to be a nice header instead of just hello
-        out.println("Welcome to Helping Paw! Here are the animals in our database.");
-        
-        //This code displays the information retreived from your table
-        
-        // Query for animals up for adoption, where available var == true
-        out.println("<br> <br>" + "Here are the animals available for adoption:");
-        Statement stmt2 = con.createStatement();
-        ResultSet rs2 = stmt2.executeQuery("select * from " + db + ".animal NATURAL JOIN " + db + "." + table + " GROUP BY bird.animalID");
-        while (rs2.next())
-            out.println("<br>" + rs2.getInt(1) + " " + rs2.getString(2) + " " + rs2.getInt(3) + " " +  rs2.getString(4) + " " +  rs2.getString(5) + " " +   rs2.getInt(6) + " " +  rs2.getInt(7));
-        con.close();
-
-    } catch (SQLException e) {
-        out.println("SQLException caught: " + e.getMessage());
-    }
-    %>
- </table>
+   		</tr>
+         
+         <c:forEach var = "row" items = "${result.rows}">
+            <tr>
+               <td><c:out value = "${row.animalID}"/></td>
+               <td><c:out value = "${row.animalname}"/></td>
+               <td><c:out value = "${row.age}"/></td>
+               <td><c:out value = "${row.breed}"/></td>
+               <td><c:out value = "${row.sex}"/></td>
+               <td><c:out value = "${row.available}"/></td>
+               <td><c:out value = "${row.beakSize}"/></td>
+            </tr>
+         </c:forEach>
+      </table>
  
 </br>
 To find more information about the requested animal please enter the animal id</br>
