@@ -40,7 +40,8 @@
 			{
 				out.println("<br> Animal does not exist.");
 			} else {	
-	        while (rs2.next()){
+	        //while (rs2.next()){  -> removed, rs2.next() twice will return nothing/skip the data we actually need
+
 	        out.println("</br>Breed: " + rs2.getString(1) );
 	        out.println("</br>AnimalName: " + rs2.getString(2) );
 	        out.println("</br>Age: " + rs2.getString(3) );
@@ -48,9 +49,8 @@
 	        out.println("</br>Posted by: " + rs2.getString(5) );
 	        out.println("</br>Email: " + rs2.getString(6) );
 	        out.println("</br>Phone: " + rs2.getString(7) );
-	        
-	}
-	}
+	       }
+	
 	        con.close();
 
 	    } catch (SQLException e) {
