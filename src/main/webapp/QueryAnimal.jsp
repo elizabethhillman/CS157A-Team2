@@ -36,7 +36,10 @@
 	        ResultSet rs2 = stmt2.executeQuery("SELECT " + selection + " FROM helpingpaw.animal natural join helpingpaw.inpost " +
 	        								   " natural join helpingpaw.posts natural join helpingpaw.adds natural join helpingpaw.seller " +
 	        								   " natural join helpingpaw.contains natural join helpingpaw.contactinformation where animalID ="  + n + ";");
-			
+		if (rs2.next() == false)
+			{
+				out.println("<br> Animal does not exist.");
+			} else {	
 	        while (rs2.next()){
 	        out.println("</br>Breed: " + rs2.getString(1) );
 	        out.println("</br>AnimalName: " + rs2.getString(2) );
@@ -45,7 +48,9 @@
 	        out.println("</br>Posted by: " + rs2.getString(5) );
 	        out.println("</br>Email: " + rs2.getString(6) );
 	        out.println("</br>Phone: " + rs2.getString(7) );
-	        }
+	        
+	}
+	}
 	        con.close();
 
 	    } catch (SQLException e) {
