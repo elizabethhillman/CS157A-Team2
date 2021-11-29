@@ -29,6 +29,14 @@ Add an animal:
 <a href="AddDog.jsp">Dogs</a>
 <a href="AddOther.jsp">Other</a>
 </h4>
+	   
+<h4>
+Remove an animal:
+<a href="RemoveBird.jsp">Birds</a>
+<a href="RemoveCat.jsp">Cats</a>
+<a href="RemoveDog.jsp">Dogs</a>
+<a href="RemoveOther.jsp">Other</a>
+</h4>
    	
       <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
          url = "jdbc:mysql://localhost/helpingpaw"
