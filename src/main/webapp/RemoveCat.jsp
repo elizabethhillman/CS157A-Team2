@@ -11,8 +11,8 @@
 <title>Helping Paw - Cats</title>
 </head>
 <body>
-	<h1>Remove Cat</h1>
-	<h3> Please select the name and ID of the Cat you would like to remove.</h3>
+	<h1>Adopt Cat</h1>
+	<h3> Please select the name and ID of the Cat you would like to adopt.</h3>
 	<table border="1">
 		<form action = "RemoveCat.jsp" method = "GET">
          Animal Name: <input type = "text" name = "animal_name">
