@@ -69,7 +69,6 @@
 	        
 	        con.close();
 	        
-
 	    } catch (SQLException e) {
 	        out.println("SQLException caught: " + e.getMessage());
 	    }
@@ -78,9 +77,11 @@
 	
 	%>
 	
+	<% if (session.getAttribute("currentUser").equals(session.getAttribute("postedBy")) || session.getAttribute("permissionLevel").equals("admin")) { %>
 	<h4>
 		<a href="EditAnimals.jsp">Edit</a>
 	</h4> 
+	<% } %>
 	<h4>
 		<a href="Animals.jsp">Back</a>
 	</h4>
