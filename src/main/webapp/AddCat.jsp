@@ -53,8 +53,11 @@
 			Statement stmt2 = con.createStatement();
 			if (request.getParameter("animal_name") != null)
 			{
-			int ri = stmt2.executeUpdate("INSERT INTO " + db + "." + table + " (animalID,animalName,age,breed,sex,available) VALUES(" + request.getParameter("id")+ ",\'" + request.getParameter("animal_name") + "\'," + request.getParameter("age") + ",\'" + request.getParameter("breed") + "\',\'" + request.getParameter("sex") +  "\',1)" );
-			int rb = stmt2.executeUpdate("INSERT INTO " + db + ".cat (animalID,hypoallergenic,size) VALUES(" + request.getParameter("id") + "," + request.getParameter("allergy") + "," +  request.getParameter("size") + ")");
+			ResultSet animalID = stmt2.executeQuery("SELECT max(animalID)+1 FROM helpingpaw.animal");
+			animalID.next();
+			int id = animalID.getInt(1);
+			int ri = stmt2.executeUpdate("INSERT INTO " + db + "." + table + " (animalID,animalName,age,breed,sex,available) VALUES(" + id+ ",\'" + request.getParameter("animal_name") + "\'," + request.getParameter("age") + ",\'" + request.getParameter("breed") + "\',\'" + request.getParameter("sex") +  "\',1)" );
+			int rb = stmt2.executeUpdate("INSERT INTO " + db + ".cat (animalID,hypoallergenic,size) VALUES(" + id + "," + request.getParameter("allergy") + "," +  request.getParameter("size") + ")");
 			out.println( request.getParameter("animal_name") + " the " +  request.getParameter("age") + " year-old "+ request.getParameter("breed") + " has now been put up for adoption.");
 			}
 		} catch (SQLException e) {

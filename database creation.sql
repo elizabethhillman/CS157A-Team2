@@ -62,6 +62,16 @@ INSERT INTO helpingpaw.Animal values( 13 , "Hanna", 6, "Dwarf Campbell", "F", Tr
 INSERT INTO helpingpaw.Animal values( 14 ,  "Snickers", 7, "German Shepard", "M", True);
 INSERT INTO helpingpaw.Animal values( 15 ,  "Cancer",  8, "Chiken", "M" , True);
 
+INSERT INTO helpingpaw.Animal values( 112 , "Venus", 17, "Tabby", "F", True);
+INSERT INTO helpingpaw.Animal values( 118 , "Sky", 19, "Unknown", "M", True);
+INSERT INTO helpingpaw.Animal values( 119  , "Serena", 9, "Sphinx", "F", True);
+INSERT INTO helpingpaw.Animal values( 110 , "Mars", 32, "Munchikin", "M", True);
+
+INSERT INTO helpingpaw.Animal values( 118 , False, 11);
+INSERT INTO helpingpaw.Animal values( 119 , False, 25);
+INSERT INTO helpingpaw.Animal values( 110 , False, 6);
+
+
 Create TABLE helpingpaw.Bird(
 animalID integer PRIMARY KEY,
 beakSize integer
@@ -88,23 +98,21 @@ animalID integer PRIMARY KEY,
 hypoallergenic boolean DEFAULT False,
 size integer 
 );
-INSERT INTO  helpingpaw.cat values( 2 , True, 10);
-INSERT INTO  helpingpaw.cat values( 8 , False, 11);
-INSERT INTO  helpingpaw.cat values( 9 , False, 25);
-INSERT INTO  helpingpaw.cat values( 10 , False, 6);
-
-
-INSERT INTO  helpingpaw.cat values( 16 , True, 10);
-INSERT INTO  helpingpaw.cat values( 17 , False, 11);
-INSERT INTO  helpingpaw.cat values( 18 , False, 25);
-INSERT INTO  helpingpaw.cat values( 19 , False, 6);
-INSERT INTO  helpingpaw.cat values( 20 , True, 13);
-INSERT INTO  helpingpaw.cat values( 21 , False, 14);
-INSERT INTO  helpingpaw.cat values( 22 , False, 27);
-INSERT INTO  helpingpaw.cat values( 23 , False, 7);
-INSERT INTO  helpingpaw.cat values( 24 , True, 8);
-INSERT INTO  helpingpaw.cat values( 25 , False, 9);
-INSERT INTO  helpingpaw.cat values( 26 , False, 10);
+INSERT INTO  helpingpaw.cat values( 112 , True, 10);
+INSERT INTO  helpingpaw.cat values( 118 , False, 11);
+INSERT INTO  helpingpaw.cat values( 119 , False, 25);
+INSERT INTO  helpingpaw.cat values( 110 , False, 6);
+INSERT INTO  helpingpaw.cat values( 116 , True, 10);
+INSERT INTO  helpingpaw.cat values( 117 , False, 11);
+INSERT INTO  helpingpaw.cat values( 118 , False, 25);
+INSERT INTO  helpingpaw.cat values( 119 , False, 6);
+INSERT INTO  helpingpaw.cat values( 210 , True, 13);
+INSERT INTO  helpingpaw.cat values( 211 , False, 14);
+INSERT INTO  helpingpaw.cat values( 212 , False, 27);
+INSERT INTO  helpingpaw.cat values( 213 , False, 7);
+INSERT INTO  helpingpaw.cat values( 214 , True, 8);
+INSERT INTO  helpingpaw.cat values( 215 , False, 9);
+INSERT INTO  helpingpaw.cat values( 216 , False, 10);
 
 
 CREATE TABLE helpingpaw.contactinformation (email VARCHAR(45) PRIMARY KEY, address VARCHAR(45), phone VARCHAR(45));
