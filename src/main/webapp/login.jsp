@@ -63,7 +63,6 @@
 					  Statement stmt2 = con.createStatement();
 					  ResultSet currUser = stmt2.executeQuery("select permission from helpingpaw.users where name = \'" + request.getParameter("username")+"\'");
 					  currUser.next();
-					  out.println(currUser.getString(1));
 					  session.setAttribute("permissionLevel", currUser.getString(1) );
 					 response.sendRedirect("Animals.jsp");
 					  }
