@@ -31,7 +31,7 @@ Add an animal:
 </h4>
 	   
 <h4>
-Remove an animal:
+Adopt an animal:
 <a href="RemoveBird.jsp">Birds</a>
 <a href="RemoveCat.jsp">Cats</a>
 <a href="RemoveDog.jsp">Dogs</a>
