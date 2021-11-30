@@ -31,6 +31,14 @@
       </form>
       
       <%
+      
+      
+      
+      
+      
+      
+      
+      
 		String db = "helpingpaw", 
 				username = "root", 
 		password = "team2", 
@@ -51,6 +59,7 @@
 				  if (rs.getString("password").equals(request.getParameter("password")))
 				  {
 				  userFound = true;
+				  session.setAttribute("currentUser", request.getParameter("username"));
 				  response.sendRedirect("Animals.jsp");
 				  }
 			  }
@@ -64,6 +73,8 @@
 			out.println("SQLException caught: " + e.getMessage());
 		}
 		%>
+		
+		
       
 </body>
 </html>

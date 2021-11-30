@@ -37,6 +37,7 @@ Remove an animal:
 <a href="RemoveDog.jsp">Dogs</a>
 <a href="RemoveOther.jsp">Other</a>
 </h4>
+
    	
       <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
          url = "jdbc:mysql://localhost/helpingpaw"

@@ -53,7 +53,7 @@
             <%= request.getParameter("beakSize")%>
          </p></li>
 -->
-<h4>
+	<h4>
 		<a href="Animals.jsp">Back</a>
 	</h4>
       </ul>
