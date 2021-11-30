@@ -11,8 +11,8 @@
 <title>Helping Paw - Other</title>
 </head>
 <body>
-	<h1>Remove Other Animals</h1>
-	<h3> Please select the name and ID of the Other animals you would like to remove.</h3>
+	<h1>Adopt Other Animals</h1>
+	<h3> Please select the name and ID of the Other animals you would like to adopt.</h3>
 	<table border="1">
 		<form action = "RemoveOther.jsp" method = "GET">
          Animal Name: <input type = "text" name = "animal_name">
