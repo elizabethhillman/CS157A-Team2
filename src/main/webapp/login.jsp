@@ -54,15 +54,20 @@
 			
 			rs.next();
 			while(!rs.isAfterLast()){
-			  if (rs.getString("name").equals(request.getParameter("username")))
-			  {
-				  if (rs.getString("password").equals(request.getParameter("password")))
+				  if (rs.getString("name").equals(request.getParameter("username")))
 				  {
-				  userFound = true;
-				  session.setAttribute("currentUser", request.getParameter("username"));
-				  response.sendRedirect("Animals.jsp");
+					  if (rs.getString("password").equals(request.getParameter("password")))
+					  {
+					  userFound = true;
+					  session.setAttribute("currentUser", request.getParameter("username"));
+					  Statement stmt2 = con.createStatement();
+					  ResultSet currUser = stmt2.executeQuery("select permission from helpingpaw.users where name = \'" + request.getParameter("username")+"\'");
+					  currUser.next();
+					  out.println(currUser.getString(1));
+					  session.setAttribute("permissionLevel", currUser.getString(1) );
+					 response.sendRedirect("Animals.jsp");
+					  }
 				  }
-			  }
 			  rs.next();
 			}
 			if (userFound == false && request.getParameter("username") != null)
