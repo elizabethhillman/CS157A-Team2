@@ -54,32 +54,17 @@
 	        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db, username, password);
 	        Statement stmt2 = con.createStatement();
 	        
-	        
-	        String userPermission ="";
-	        
-	        ResultSet permission = stmt2.executeQuery("SELECT permission FROM helpingpaw.users WHERE name = '"  + session.getAttribute("currentUser") +"';" );
-	        
-	        while(permission.next())
-	        {
-	        	userPermission = permission.getString(1);
-	        }
-	       
 	        //checks if user trying to edit is the same user who posted it
-	        if (session.getAttribute("postedBy").equals(session.getAttribute("currentUser")) || userPermission.equals("admin"))
+	        if (request.getParameter("animal_name") != null)
 			{
 	        	//if this is true, updates the db based on new info
 			int ri = stmt2.executeUpdate("UPDATE " + db + "." + table + " SET animalName = '" + request.getParameter("animal_name") + "', age = '" + request.getParameter("animal_age") + "', breed = '" + request.getParameter("animal_breed") + "', sex = '" + request.getParameter("animal_sex") +"' WHERE animalID = " + session.getAttribute("animal_id"));
 			out.println( request.getParameter("animal_name") + " the " +  request.getParameter("animal_age") + " year-old "+ request.getParameter("animal_breed") + " has now been put up for adoption.");
 			}
 	        
-	        else{
-	        	//if not, error message is posted to the screen
-	        out.println("You do not have access to edit this information");
-	        }
 	        
 	        con.close();
 	        
-
 	    } catch (SQLException e) {
 	        out.println("SQLException caught: " + e.getMessage());
 	    }
