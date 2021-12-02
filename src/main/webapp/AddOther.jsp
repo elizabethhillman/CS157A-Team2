@@ -20,7 +20,6 @@
 			<br />
 		</tr>
 		<form action="AddOther.jsp" method="GET">
-			ID: <input type="text" name="id"> <br /> 
 			Animal Name: <input type="text" name="animal_name"> <br /> 
 			Age: <input type="text" name="age" /> <br /> Breed: <input type="text"
 				name="breed"> <br /> Sex: <input type="text" name="sex">
@@ -45,8 +44,12 @@
 			Statement stmt2 = con.createStatement();
 			if (request.getParameter("animal_name") != null)
 			{
-			int ri = stmt2.executeUpdate("INSERT INTO " + db + "." + table + " (animalID,animalName,age,breed,sex,available) VALUES(" + request.getParameter("id")+ ",\'" + request.getParameter("animal_name") + "\'," + request.getParameter("age") + ",\'" + request.getParameter("breed") + "\',\'" + request.getParameter("sex") +  "\',1)" );
-			int rb = stmt2.executeUpdate("INSERT INTO " + db + ".other (animalID, animalType) VALUES(" + request.getParameter("id") + ",\'" + request.getParameter("type") + "\')");
+			ResultSet animalID = stmt2.executeQuery("SELECT max(animalID)+1 FROM helpingpaw.animal");
+			animalID.next();
+			int id = animalID.getInt(1);	
+			
+			int ri = stmt2.executeUpdate("INSERT INTO " + db + "." + table + " (animalID,animalName,age,breed,sex,available) VALUES(" + id+ ",\'" + request.getParameter("animal_name") + "\'," + request.getParameter("age") + ",\'" + request.getParameter("breed") + "\',\'" + request.getParameter("sex") +  "\',1)" );
+			int rb = stmt2.executeUpdate("INSERT INTO " + db + ".other (animalID, animalType) VALUES(" + id + ",\'" + request.getParameter("type") + "\')");
 			out.println( request.getParameter("animal_name") + " the " +  request.getParameter("age") + " year-old "+ request.getParameter("breed") + " has now been put up for adoption.");
 
 			}

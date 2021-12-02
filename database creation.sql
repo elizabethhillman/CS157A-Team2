@@ -67,10 +67,6 @@ INSERT INTO helpingpaw.Animal values( 118 , "Sky", 19, "Unknown", "M", True);
 INSERT INTO helpingpaw.Animal values( 119  , "Serena", 9, "Sphinx", "F", True);
 INSERT INTO helpingpaw.Animal values( 110 , "Mars", 32, "Munchikin", "M", True);
 
-INSERT INTO helpingpaw.Animal values( 118 , False, 11);
-INSERT INTO helpingpaw.Animal values( 119 , False, 25);
-INSERT INTO helpingpaw.Animal values( 110 , False, 6);
-
 
 Create TABLE helpingpaw.Bird(
 animalID integer PRIMARY KEY,
@@ -102,10 +98,9 @@ INSERT INTO  helpingpaw.cat values( 112 , True, 10);
 INSERT INTO  helpingpaw.cat values( 118 , False, 11);
 INSERT INTO  helpingpaw.cat values( 119 , False, 25);
 INSERT INTO  helpingpaw.cat values( 110 , False, 6);
+
 INSERT INTO  helpingpaw.cat values( 116 , True, 10);
 INSERT INTO  helpingpaw.cat values( 117 , False, 11);
-INSERT INTO  helpingpaw.cat values( 118 , False, 25);
-INSERT INTO  helpingpaw.cat values( 119 , False, 6);
 INSERT INTO  helpingpaw.cat values( 210 , True, 13);
 INSERT INTO  helpingpaw.cat values( 211 , False, 14);
 INSERT INTO  helpingpaw.cat values( 212 , False, 27);
@@ -143,6 +138,9 @@ INSERT INTO helpingpaw.contactinformation VALUES("liz.hill@sjsu.edu", "Trigo Roa
 INSERT INTO helpingpaw.contactinformation VALUES("jess.ramos@sjsu.edu", "El Pescino", "8055086547");
 INSERT INTO helpingpaw.contactinformation VALUES("mary.katy@sjsu.edu" ,"Domingo", "8056269091");
 
+
+
+
 CREATE TABLE helpingpaw.contains (email VARCHAR(45) PRIMARY KEY, username VARCHAR(45));
 INSERT INTO helpingpaw.contains VALUES ("mj300@gmail.com","mj300");
 INSERT INTO helpingpaw.contains VALUES ("ronniem@yahoo.com","ronniem");
@@ -150,7 +148,7 @@ INSERT INTO helpingpaw.contains VALUES ("puppyluvr@hotmail.com","puppyluvr");
 INSERT INTO helpingpaw.contains VALUES ("abbygp@gmail.com","puppyluver01");
 INSERT INTO helpingpaw.contains VALUES ("christom@hotmail.com","christom");
 INSERT INTO helpingpaw.contains VALUES ("fossilfighter@gmail.com","fossilfighter");
-INSERT INTO helpingpaw.contains VALUES ("clyde.pill@gmail.com","cp30");
+INSERT INTO helpingpaw.contains VALUES ("clyde.pill@gmail.com","c3p0");
 INSERT INTO helpingpaw.contains VALUES ("sarah.schauer@gmail.com","s.schauer");
 INSERT INTO helpingpaw.contains VALUES ("deanna.jade@gmail.com","djade16");
 INSERT INTO helpingpaw.contains VALUES ("e.esguerra@gmail.com","e.esguerra");
@@ -172,6 +170,8 @@ INSERT INTO helpingpaw.contains VALUES("jess.ramos@sjsu.edu" ,"jessramos");
 INSERT INTO helpingpaw.contains VALUES("mary.katy@sjsu.edu" ,"marykate");
 
 
+
+
 Create TABLE helpingpaw.Dog(
 animalID integer PRIMARY KEY,
 hypoallergenic boolean DEFAULT False,
@@ -181,7 +181,6 @@ INSERT INTO helpingpaw.Dog values( 3 , True, 32 );
 INSERT INTO helpingpaw.Dog values( 4 , False,50);
 INSERT INTO helpingpaw.Dog values( 6 , False,40);
 INSERT INTO helpingpaw.Dog values( 14 , False, 35);
-
 INSERT INTO helpingpaw.Dog values( 27 , True, 10);
 INSERT INTO helpingpaw.Dog values( 28 , False, 11);
 INSERT INTO helpingpaw.Dog values( 29, False, 25);
@@ -214,6 +213,12 @@ INSERT INTO helpingpaw.InPost values( 12 , 12);
 INSERT INTO helpingpaw.InPost values( 13 , 13);
 INSERT INTO helpingpaw.InPost values( 14 , 14);
 INSERT INTO helpingpaw.InPost values( 15 , 15);
+INSERT INTO helpingpaw.InPost values( 112 , 112 );
+INSERT INTO helpingpaw.InPost values( 118 , 118 );
+INSERT INTO helpingpaw.InPost values( 119 , 119 );
+INSERT INTO helpingpaw.InPost values( 110 , 110 );
+
+
 
 Create TABLE helpingpaw.other(
 animalID integer PRIMARY KEY,
@@ -255,6 +260,11 @@ INSERT INTO helpingpaw.Posts values( 12 , CURRENT_TIMESTAMP , Null );
 INSERT INTO helpingpaw.Posts values( 13 , CURRENT_TIMESTAMP , Null );
 INSERT INTO helpingpaw.Posts values( 14 , CURRENT_TIMESTAMP , Null );
 INSERT INTO helpingpaw.Posts values( 15 , CURRENT_TIMESTAMP , Null );
+INSERT INTO helpingpaw.Posts values( 112 , CURRENT_TIMESTAMP , Null);
+INSERT INTO helpingpaw.Posts values( 118 , CURRENT_TIMESTAMP , Null);
+INSERT INTO helpingpaw.Posts values( 119 , CURRENT_TIMESTAMP , Null );
+INSERT INTO helpingpaw.Posts values( 110 , CURRENT_TIMESTAMP , Null );
+
 
 # Create and insert into seller table
 CREATE TABLE helpingpaw.seller (username VARCHAR(45) PRIMARY KEY, sellerid INT);
@@ -273,6 +283,12 @@ INSERT INTO helpingpaw.seller VALUES("jessramos",12);
 INSERT INTO helpingpaw.seller VALUES("marykate",13);
 INSERT INTO helpingpaw.seller VALUES("kitkatclub",14);
 INSERT INTO helpingpaw.seller VALUES("rabbitsonrabbits",15);
+
+INSERT INTO helpingpaw.seller VALUES("mj300", 112 );
+INSERT INTO helpingpaw.seller VALUES("ronniem" , 118 );
+INSERT INTO helpingpaw.seller VALUES("puppyluvr",119 );
+INSERT INTO helpingpaw.seller VALUES( "c3p0",110 );
+
 
 # Create and insert into users table
 CREATE TABLE helpingpaw.users(name VARCHAR(45) PRIMARY KEY, permission VARCHAR(45), password VARCHAR(45));
@@ -309,7 +325,10 @@ INSERT INTO helpingpaw.adds values( 12 , 12 );
 INSERT INTO helpingpaw.adds values( 13 , 13 );
 INSERT INTO helpingpaw.adds values( 14 , 14 );
 INSERT INTO helpingpaw.adds values( 15 , 15 );
-
+INSERT INTO helpingpaw.adds values(112, 112 );
+INSERT INTO helpingpaw.adds values(118 , 118 );
+INSERT INTO helpingpaw.adds values(119,119 );
+INSERT INTO helpingpaw.adds values(110,110 );
 
 # Links adopter and posts 
 CREATE TABLE helpingpaw.removes(postID integer , adopterID integer );
