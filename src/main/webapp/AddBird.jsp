@@ -19,6 +19,8 @@
 			<td>Available</td>
 			<br />
 		</tr>
+		
+<!-- 		form to get information on new bird being added to database -->
 		<form action = "AddBird.jsp" method = "GET">
          Animal Name: <input type = "text" name = "animal_name">
          <br />
@@ -65,19 +67,26 @@
 				
 
 		try {
+			//connects to db
 			java.sql.Connection con;
 			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db, username, password);
 			Statement stmt2 = con.createStatement();
+			
+			//checks if new animal has a name
 			if (request.getParameter("animal_name") != null)
 			{
-			ResultSet animalID = stmt2.executeQuery("SELECT max(animalID)+1 FROM helpingpaw.animal");
-			animalID.next();
-			int id = animalID.getInt(1);	
+				//increments animal id by 1
+				ResultSet animalID = stmt2.executeQuery("SELECT max(animalID)+1 FROM helpingpaw.animal");
+				animalID.next();
+				int id = animalID.getInt(1);	
 				
-			int ri = stmt2.executeUpdate("INSERT INTO " + db + "." + table + " (animalID,animalName,age,breed,sex,available) VALUES(" + id + ",\'" + request.getParameter("animal_name") + "\'," + request.getParameter("age") + ",\'" + request.getParameter("breed") + "\',\'" + request.getParameter("sex") +  "\',1)" );
-			int rb = stmt2.executeUpdate("INSERT INTO " + db + ".bird (animalID, beakSize) VALUES(" + id + "," + request.getParameter("beakSize") + ")");
-			out.println( request.getParameter("animal_name") + " the " +  request.getParameter("age") + " year-old "+ request.getParameter("breed") + " has now been put up for adoption.");
+				//inserts new bird into animal table
+				int ri = stmt2.executeUpdate("INSERT INTO " + db + "." + table + " (animalID,animalName,age,breed,sex,available) VALUES(" + id + ",\'" + request.getParameter("animal_name") + "\'," + request.getParameter("age") + ",\'" + request.getParameter("breed") + "\',\'" + request.getParameter("sex") +  "\',1)" );
+				//inserts new bird into bird table
+				int rb = stmt2.executeUpdate("INSERT INTO " + db + ".bird (animalID, beakSize) VALUES(" + id + "," + request.getParameter("beakSize") + ")");
+				//displays message that the animal has been successfully added into the database
+				out.println( request.getParameter("animal_name") + " the " +  request.getParameter("age") + " year-old "+ request.getParameter("breed") +" has now been put up for adoption.");
 			}
 
 		} catch (SQLException e) {
