@@ -12,6 +12,8 @@
 </head>
 <body>
 	<h1>Adopt Bird</h1>
+	
+<!-- 	form for user to input data of the bird they want to remove -->
 	<h3> Please select the name and ID of the bird you would like to adopt.</h3>
 	<table border="1">
 		<form action = "RemoveBird.jsp" method = "GET">
@@ -53,23 +55,32 @@
 		table = "animal";  
 				
 		try {
+			//connects to database
 			java.sql.Connection con;
 			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db, username, password);
 			Statement stmt2 = con.createStatement();
 			
+			//checks to make sure id field is not empty when trying to adopt an animal
 			if (request.getParameter("id") != null)
 			{
+				//joins animal and bird table based on animal id
 				ResultSet rs3 = stmt2.executeQuery("select * from "+ db + "." + table + " NATURAL JOIN helpingpaw.bird WHERE animalId = " + request.getParameter("id"));
-				 while (rs3.next())
+				
+				//prints message that the desired animal has been adopted
+				while (rs3.next())
 			            out.println("<br> Animal ID: " + rs3.getInt(1) + "<br> " + rs3.getString(2) + " the " + rs3.getInt(3) + "-year old " + rs3.getString(4) + " has been removed from the DB.");
-			int ri = stmt2.executeUpdate("DELETE FROM " + db + "." + table + " WHERE animalID = \'" + request.getParameter("id") + "\'" );
-			int rb = stmt2.executeUpdate("DELETE FROM " + db + ".bird WHERE animalID = \'" + request.getParameter("id") + "\'");
+				//removes bird from animal database
+				int ri = stmt2.executeUpdate("DELETE FROM " + db + "." + table + " WHERE animalID = \'" + request.getParameter("id") + "\'" );
+				//removes bird from bird database
+				int rb = stmt2.executeUpdate("DELETE FROM " + db + ".bird WHERE animalID = \'" + request.getParameter("id") + "\'");
 			}
 		} catch (SQLException e) {
 			out.println("SQLException caught: " + e.getMessage());
 		}
 		%>
+		
+<!-- 		table showing all birds still available for adoption -->
       <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
          url = "jdbc:mysql://localhost/helpingpaw"
          user = "root"  password = "team2"/>
